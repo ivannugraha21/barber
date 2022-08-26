@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="OrderlineBarberButton" owl="1">
+        <div class="control-button">
+            <i class="fa fa-user" />
+            <span> </span>
+            <span>Set Barber</span>
+        </div>
+    </t>
+
+</templates>

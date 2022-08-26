@@ -1,0 +1,17 @@
+.select_custom {
+    width: 100%;
+    padding: 17.5px 5px;
+    border: none;
+    background: transparent;
+    color: #555555;
+    font-weight: bold;
+    appearance: none;
+    text-align: center;
+    border: solid 1px #bfbfbf;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.select_custom:hover {
+    background-color: #fcfcfc;
+}

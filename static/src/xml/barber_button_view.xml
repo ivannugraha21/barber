@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="pos_barber" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<!-- PosIsiPulsaWidget -->
+
+    <t t-name="BarberWidget" name="Barber Widget" owl="1">
+	    <!-- <button class="button">
+	    	<i role="img" aria-label="Barber" title="Barber" class="fa fa-user"></i>
+	        Barber
+	    </button> -->
+
+	    <div class="control-button">
+            <i class="fa fa-user" />
+            <span> </span>
+            <span>Set Barber</span>
+        </div>
+
+		<!-- <select class='select_custom barber' name='group_id'>
+			<option value="">
+				Select Barber
+			</option>
+        	<t t-foreach="Barbers" t-as="barber" t-key="barber.id">
+    			<option t-att-value='barber.id'>
+    				<t t-esc='barber.name'/>
+    			</option>     
+    		</t>
+        </select> -->
+
+   	</t>
+
+
+   	<t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('control-buttons')]" position="inside">
+            <BarberWidget/>
+        </xpath>
+    </t>
+
+
+    <!-- <t t-name="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('set-customer')]" position="before">
+            <BarberWidget/>
+        </xpath>
+    </t> -->
+
+	 <!-- PosBagPopupWidget -->
+	 <t t-name="BarberListPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-textarea">
+                    <header class="title drag-handle">
+                        <t t-esc="props.title" />
+                    </header>
+                    <div style="padding: 10px;">
+	                    <select class='select_custom barber-select' name='group_id'>
+							<option value="">
+								Select Barber
+							</option>
+				        	<t t-foreach="Barbers" t-as="barber" t-key="barber.id">
+				    			<option t-att-value='barber.id'>
+				    				<t t-esc='barber.name'/>
+				    			</option>     
+				    		</t>
+				        </select>
+			    	</div>
+                    <footer class="footer">
+                        <div class="button confirm" t-on-click="confirm">
+                            <t t-esc="props.confirmText" />
+                        </div>
+                        <div class="button cancel" t-on-click="cancel">
+                            <t t-esc="props.cancelText" />
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+    
+
+</templates>
