@@ -11,7 +11,10 @@ import pytz
 #     barber = fields.Many2one('res.partner', string="Barber")
 
 
-class PosOrder(models.Model):
+class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
 
     barber = fields.Many2one('res.partner', string="Barber")
+    #barber = fields.Char(string='Barber Info', help='Barber Info')
+
+

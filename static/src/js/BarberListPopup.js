@@ -19,7 +19,7 @@ odoo.define('md_barber.BarberListPopup', function(require) {
             this.state = useState({ inputValue: this.props.startingValue });
             this.inputRef = useRef('input');
         }
-        
+
         // mounted() {
         //     this.inputRef.el.focus();
         // }
@@ -29,10 +29,25 @@ odoo.define('md_barber.BarberListPopup', function(require) {
 
         // Ketika save button pada modal di klik
         confirm() {
-            var valueInput = $('.barber-select option:selected').text();
-            console.log(valueInput);
+            var textInput = $('.barber-select option:selected').text();
+            var valueInput = $('.barber-select option:selected').val();
+            //console.log(valueInput);
+            //
+            var dataPartners = this.env.pos.db.get_partners_sorted(1000);
+            //console.log(dataPartners);
+            var dataPartner = false;
+            for (var i = 0; i < dataPartners.length; i++) {
+                console.log(dataPartners[i].id + ' / ' + valueInput);
+                if (+dataPartners[i].id == +valueInput) {
+                    dataPartner = dataPartners[i];
+                }
+            }
+            //console.log(dataPartner.name);
+            //
+            //console.log(selectedOrderline);
+            //
             const selectedOrderline = this.env.pos.get_order().get_selected_orderline();
-            selectedOrderline.set_barber(valueInput);
+            selectedOrderline.set_barber(dataPartner);
             //
             this.showScreen('ProductScreen');
             this.trigger('close-popup');

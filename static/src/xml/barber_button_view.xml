@@ -35,6 +35,17 @@
         </xpath>
     </t>
 
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//li[hasclass('info')]" position="after">
+            <t t-if="barber">
+                <li class="info barber-info">
+                    <i class="fa fa-user" role="img" aria-label="Barber Name" title="Barber Name"/>
+                    <t t-esc="barber" />
+                </li>
+            </t>
+        </xpath>
+    </t>
+
 
     <!-- <t t-name="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
         <xpath expr="//button[hasclass('set-customer')]" position="before">

@@ -35,29 +35,15 @@
         'point_of_sale.assets': [
             #
             '/md_barber/static/src/js/barber_button.js',
-            '/md_barber/static/src/js/barber_button_popup.js',
-            #
-            '/md_barber/static/src/js/BarberListScreen.js',
-            '/md_barber/static/src/js/BarberLine.js',
-            '/md_barber/static/src/js/BarberDetailsEdit.js',
-            #
-            #'/md_barber/static/src/js/OrderlineBarberButton.js',
             '/md_barber/static/src/js/barber.js',
             '/md_barber/static/src/js/BarberListPopup.js',
-            #
             '/md_barber/static/src/js/models.js',
+            '/md_barber/static/src/js/Orderline.js',
             #
-
             '/md_barber/static/src/css/custom_barber.css',
         ],
         'web.assets_qweb': [
             '/md_barber/static/src/xml/barber_button_view.xml',
-            #
-            '/md_barber/static/src/xml/BarberListScreen.xml',
-            '/md_barber/static/src/xml/BarberLine.xml',
-            '/md_barber/static/src/xml/BarberDetailsEdit.xml',
-            #
-            #'/md_barber/static/src/xml/OrderlineBarberButton.xml',
         ],
     },
     # only loaded in demonstration mode
