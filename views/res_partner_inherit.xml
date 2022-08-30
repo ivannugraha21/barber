@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="view_pos_barber_filter" model="ir.ui.view">
+        <field name="name">res.partner.pos.barber.filter</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <search string="Search Sales Order">
+                <field name="name"/>
+                <filter string="Barber" domain="[('partner_status', '=', 'barber')]" name="barber_filter"/>   
+                <filter string="Customer" domain="[('partner_status', '=', 'customer')]" name="customer_filter"/>  
+           </search>
+        </field>
+    </record>
+
     <record id="view_res_partner_inherite_barber" model="ir.ui.view">
         <field name="name">res.partner.status.inherit</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="after">
-                <field name="partner_status"/>
+                <field name="partner_status" string="Status"/>
+                <field name="partner_dob" string="Date of Birth"/>
+                <field name="partner_age" string="Age"/>
+                <!-- <field name="kelurahan" attrs="{'invisible': [('kecamatan', '=', False)]}"/> -->
             </xpath>
         </field>
     </record>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+        <field name="context">{"search_default_customer_filter": 1, "default_partner_status": "customer"}</field>
+    </record>
+
+</odoo>

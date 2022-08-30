@@ -29,6 +29,8 @@
         'views/templates.xml',
         'views/res_partner_inherit.xml',
         'views/pos_order_inherit.xml',
+        'views/barber_view.xml',
+        'views/customer_view.xml',
     ],
 
     'assets': {
@@ -39,6 +41,7 @@
             '/md_barber/static/src/js/BarberListPopup.js',
             '/md_barber/static/src/js/models.js',
             '/md_barber/static/src/js/Orderline.js',
+            '/md_barber/static/src/js/ClientListScreen.js',
             #
             '/md_barber/static/src/css/custom_barber.css',
         ],
