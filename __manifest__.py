@@ -31,6 +31,7 @@
         'views/pos_order_inherit.xml',
         'views/barber_view.xml',
         'views/customer_view.xml',
+        'views/pos_order_report_view.xml',
     ],
 
     'assets': {

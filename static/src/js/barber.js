@@ -4,33 +4,12 @@ odoo.define('md_barber.barber', function(require) {
     var models = require('point_of_sale.models');
     var _super_orderline = models.Orderline.prototype;
 
-
-
     models.Orderline = models.Orderline.extend({
-        // initialize: function(attr,options){
-        //     // Call SUPER method!!
-        //     _super_orderline.init_from_JSON.apply(this,arguments);
-        //     console.log('Extend Orderline initialize');
-        //     this.customerNote = this.customerNote || '';
-        // }
-        // init_from_JSON: function(json){
-        //     // Call SUPER method!!
-        //     _super_orderline.init_from_JSON.apply(this,arguments);
-        //     // =============
-        //     // DO YOUR STUFF
-        //     // =============
-        //     console.log('Extend Init From Json')
-        //     this.set_barber(json.barber)
-        // }
-
         initialize: function(attr,options){
             var self = this;
-            //this._super(attr,options);
-            // Apply old function first
             _super_orderline.initialize.apply(this,arguments);
             // Add new command inside function
             this.barber = this.barber || '';
-            //this.set_barber();
         },
 
         set_barber: function(barber) {
@@ -48,7 +27,7 @@ odoo.define('md_barber.barber', function(require) {
                     return pack_lot_ids.push([0, 0, item.export_as_JSON()]);
                 }, this));
             }
-            console.log('Export Override');
+            //console.log('Export Override');
             return {
                 qty: this.get_quantity(),
                 price_unit: this.get_unit_price(),
@@ -70,32 +49,4 @@ odoo.define('md_barber.barber', function(require) {
         },
     });
 
-
-    // models.Order = models.Order.extend({
-
-    //     init: function(parent, options) {
-    //         var self = this;
-    //         this._super(parent,options);
-    //         this.set_barber();
-    //         console.log("Load Init Order Line")
-    //     },
-        
-    //     set_barber: function(barber){
-    //         if (!this.barber){
-    //             this.barber = barber
-    //         }
-    //         console.log("Set Barber")
-    //     },
-
-    //     get_barber: function(){
-    //         var order = this.pos.get_order();
-    //         if (order) {
-    //             var barber = this.barber
-    //             return barber
-    //         }
-    //     },
-
-      
-
-    // });
 });

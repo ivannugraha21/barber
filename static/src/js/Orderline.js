@@ -8,7 +8,7 @@ odoo.define('md_barber.Orderline', function(require) {
     const PosLineDiscount = (Orderline) => class extends Orderline {
 
         get barber() {
-            console.log('triger : get barber()25');
+            //console.log('triger : get barber()25');
             if (this.props.line.get_barber()) {
             	return this.props.line.get_barber().name;	
             }

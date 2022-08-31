@@ -6,9 +6,6 @@ odoo.define('md_barber.BarberListPopup', function(require) {
     const Registries = require('point_of_sale.Registries');
     const { _lt } = require('@web/core/l10n/translation');
 
-    // formerly TextAreaPopupWidget
-    // IMPROVEMENT: This code is very similar to TextInputPopup.
-    //      Combining them would reduce the code.
     class BarberListPopup extends AbstractAwaitablePopup {
         /**
          * @param {Object} props
@@ -20,13 +17,6 @@ odoo.define('md_barber.BarberListPopup', function(require) {
             this.inputRef = useRef('input');
         }
 
-        // mounted() {
-        //     this.inputRef.el.focus();
-        // }
-        // getPayload() {
-        //     return this.state.inputValue;
-        // }
-
         // Ketika save button pada modal di klik
         confirm() {
             var textInput = $('.barber-select option:selected').text();
@@ -37,7 +27,7 @@ odoo.define('md_barber.BarberListPopup', function(require) {
             //console.log(dataPartners);
             var dataPartner = false;
             for (var i = 0; i < dataPartners.length; i++) {
-                console.log(dataPartners[i].id + ' / ' + valueInput);
+                //console.log(dataPartners[i].id + ' / ' + valueInput);
                 if (+dataPartners[i].id == +valueInput) {
                     dataPartner = dataPartners[i];
                 }
@@ -57,7 +47,7 @@ odoo.define('md_barber.BarberListPopup', function(require) {
         get Barbers() {
             var res = this.env.pos.db.get_partners_sorted(1000);
             var filter = [];
-            console.log(res);
+            //console.log(res);
             for (var i = 0; i < res.length; i++) {
                 if (res[i].partner_status == 'barber') {
                     filter.push(res[i]);

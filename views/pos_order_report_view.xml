@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_report_pos_order_search_inherite_barber" model="ir.ui.view">
+        <field name="name">pos.order.report.barber.inherit</field>
+        <field name="model">report.pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.report_pos_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_categ_id']" position="after">
+                <field name="barber_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_report_pos_order_search_inherite_barber" model="ir.ui.view">
+        <field name="name">pos.order.report.barber.inherit</field>
+        <field name="model">report.pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_report_pos_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_categ_id']" position="after">
+                <field name="barber_id"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <separator/>
+                <filter string="Barber" name="barber" context="{'group_by':'barber_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
